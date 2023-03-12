@@ -1,0 +1,19 @@
+<aura:component controller="MyController">
+    <aura:attribute name="options" type="List" />
+    <aura:attribute name="included" type="List" />
+    <aura:attribute name="excluded" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:dualListbox name="myDualListbox"
+                           label="Select Options"
+                           sourceLabel="Available"
+                           selectedLabel="Selected"
+                           options="{!v.options}"
+                           value="{!v.included}"
+                           onchange="{!c.handleSelectionChange}"
+                           />
+    <lightning:button variant="brand"
+                      label="Fetch Options"
+                      title="Fetch Options"
+                      onclick="{!c.fetchOptions}"
+                      />
+</aura:component>
