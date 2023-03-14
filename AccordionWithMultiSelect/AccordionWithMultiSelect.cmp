@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="selectedValues1" type="String[]"/>
+    <aura:attribute name="selectedValues2" type="String[]"/>
+    <!-- add your data source here -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:accordion activeSectionName="" allowMultipleSectionsOpen="true">
+        <!-- add your sections here -->
+        <aura:iteration items="{!v.data}" var="item">
+            <lightning:accordionSection name="{!item.name}">
+                <aura:set attribute="title">{!item.title}</aura:set>
+                <aura:set attribute="body">{!item.body}</aura:set>
+            </lightning:accordionSection>
+        </aura:iteration>
+    </lightning:accordion>
+</aura:component>
