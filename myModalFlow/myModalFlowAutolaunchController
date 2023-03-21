@@ -1,0 +1,39 @@
+({
+    openModal: function(component, event, helper) {
+        // Show the modal and backdrop
+        component.find('myModal').getElement().classList.add('slds-fade-in-open');
+        component.find('myModalBackdrop').getElement().classList.add('slds-backdrop_open');
+    },
+    
+    closeModal: function(component, event, helper) {
+        // Hide the modal and backdrop
+        component.find('myModal').getElement().classList.remove('slds-fade-in-open');
+        component.find('myModalBackdrop').getElement().classList.remove('slds-backdrop_open');
+    },
+    
+    triggerFlow: function(component, event, helper) {
+        // Get the example object Id
+        var exampleId = 'a023h00000abcde';
+        
+        // Create the flow input variables
+        var inputVariables = [
+            {
+                name: 'exampleId',
+                type: 'String',
+                value: exampleId
+            }
+        ];
+        
+        // Create the flow action
+        var flowAction = component.get("c.myFlow");
+        flowAction.setParams({
+            inputVariables: inputVariables
+        });
+        
+        // Invoke the flow action
+        $A.enqueueAction(flowAction);
+        
+        // Close the modal
+        this.closeModal(component, event, helper);
+    }
+})
