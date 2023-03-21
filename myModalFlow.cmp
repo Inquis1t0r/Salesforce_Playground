@@ -1,0 +1,24 @@
+<aura:component>
+    <!-- Open modal button -->
+    <lightning:button label="Open Modal" onclick="{!c.openModal}" />
+    
+    <!-- Modal content -->
+    <div aura:id="myModal" role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-hide">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <h2 id="header43" class="slds-text-heading_medium">Modal Header</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around_medium">
+                <p>Modal Content Goes Here</p>
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick="{!c.closeModal}">Close</button>
+                <!-- Button to trigger flow -->
+                <lightning:button label="Trigger Flow" onclick="{!c.triggerFlow}" />
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Backdrop -->
+    <div aura:id="myModalBackdrop" class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>
