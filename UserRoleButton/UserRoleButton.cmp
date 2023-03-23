@@ -1,0 +1,8 @@
+<aura:component controller="UserRoleController">
+    <aura:attribute name="showButton" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <aura:if isTrue="{!v.showButton}">
+        <lightning:button variant="brand" label="System Admin Only" />
+    </aura:if>
+</aura:component>
