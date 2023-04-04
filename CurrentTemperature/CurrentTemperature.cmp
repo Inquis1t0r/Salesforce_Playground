@@ -4,5 +4,8 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.getTemperature}"/>
     
-    <p>The current temperature in {!v.city} is {!v.temperature}&deg;C</p>
+    <div class="temperature-container">
+        <h1 class="temperature-header">Current Temperature</h1>
+        <p class="temperature-value">The current temperature in {!v.city} is {!v.temperature}&deg;C</p>
+    </div>
 </aura:component>
