@@ -1,0 +1,42 @@
+<aura:component controller="myController" >
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="field1" type="String" />
+    <aura:attribute name="field2" type="Integer" />
+    <aura:attribute name="field3" type="Boolean" />
+    <aura:attribute name="field4" type="Date" />
+    <aura:attribute name="field5" type="String" />
+    <h1>Tests</h1>
+    <div style="display: flex; flex-wrap: wrap;">
+        <div style="flex: 1; padding-right: 10px;">
+            <div>
+                <label for="input-field-1">Input Field 1:</label>
+                <input type="text" id="input-field-1" value="{!v.field1}" />
+            </div>
+            <div>
+                <label for="input-field-2">Input Field 2:</label>
+                <input type="number" id="input-field-2" value="{!v.field2}" />
+            </div>
+            <div>
+                <label for="input-field-3">Input Field 3:</label>
+                <input type="checkbox" id="input-field-3" checked="{!v.field3}" />
+            </div>
+        </div>
+        <div style="flex: 1; padding-left: 10px;">
+            <div>
+                <label for="input-field-4">Input Field 4:</label>
+                <input type="date" id="input-field-4" value="{!v.field4}" />
+            </div>
+            <div>
+                <label for="input-field-5">Input Field 5:</label>
+                <select id="input-field-5" value="{!v.field5}">
+                    <option value="">--Select--</option>
+                    <option value="Option 1">Option 1</option>
+                    <option value="Option 2">Option 2</option>
+                    <option value="Option 3">Option 3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <button onclick="{!c.updateRecord}">Update Record</button>
+</aura:component>
