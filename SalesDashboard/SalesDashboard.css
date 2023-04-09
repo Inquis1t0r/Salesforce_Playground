@@ -1,0 +1,14 @@
+.THIS .slds-is-active {
+    background-color: #f4f6f9;
+    border-color: #d8dde6;
+    color: #16325c;
+    font-weight: bold;
+}
+
+.THIS .slds-box_x-small {
+    padding: 1rem;
+    border: 1px solid #d8dde6;
+    border-radius: .25rem;
+}
+
+.THIS .s
