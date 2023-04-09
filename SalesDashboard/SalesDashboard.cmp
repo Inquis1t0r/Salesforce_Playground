@@ -1,0 +1,97 @@
+<aura:component controller="SalesDashboardController" implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="regions" type="List" />
+    <aura:attribute name="selectedRegion" type="Object" />
+    <aura:attribute name="regionData" type="Object" />
+
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-3">
+            <lightning:card title="Regions">
+                <lightning:layout>
+                    <lightning:layoutItem size="12">
+                        <lightning:layout verticalAlign="start">
+                            <aura:iteration items="{!v.regions}" var="region">
+                                <lightning:layoutItem size="6">
+                                    <lightning:button label="{!region.Name}" onclick="{!c.selectRegion}" value="{!region}" class="{!region.Id == v.selectedRegion.Id ? 'slds-is-active' : ''}" />
+                                </lightning:layoutItem>
+                            </aura:iteration>
+                        </lightning:layout>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:card>
+        </div>
+        <div class="slds-col slds-size_2-of-3">
+            <lightning:card title="{!v.selectedRegion.Name}">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <div class="slds-box slds-box_x-small">
+                            <h2 class="slds-text-heading_small">Sales by Category</h2>
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col">
+                                    <p class="slds-text-title_caps">Category</p>
+                                </div>
+                                <div class="slds-col">
+                                    <p class="slds-text-title_caps">Amount</p>
+                                </div>
+                            </div>
+                            <aura:iteration items="{!v.regionData.salesByCategory}" var="category">
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col">
+                                        <p>{!category.category}</p>
+                                    </div>
+                                    <div class="slds-col">
+                                        <p>{!category.amount}</p>
+                                    </div>
+                                </div>
+                            </aura:iteration>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <div class="slds-box slds-box_x-small">
+                            <h2 class="slds-text-heading_small">Sales by Product</h2>
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col">
+                                    <p class="slds-text-title_caps">Product</p>
+                                </div>
+                                <div class="slds-col">
+                                    <p class="slds-text-title_caps">Amount</p>
+                                </div>
+                            </div>
+                            <aura:iteration items="{!v.regionData.salesByProduct}" var="product">
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col">
+                                        <p>{!product.product}</p>
+                                    </div>
+                                    <div>
+                                    </div>
+                                </div>
+                            </aura:iteration>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1">
+                        <div class="slds-box slds-box_x-small">
+                            <h2 class="slds-text-heading_small">Sales by Month</h2>
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col">
+                                    <p class="slds-text-title_caps">Month</p>
+                                </div>
+                                <div class="slds-col">
+                                    <p class="slds-text-title_caps">Amount</p>
+                                </div>
+                            </div>
+                            <aura:iteration items="{!v.regionData.salesByMonth}" var="month">
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col">
+                                        <p>{!month.month}</p>
+                                    </div>
+                                    <div class="slds-col">
+                                        <p>{!month.amount}</p>
+                                    </div>
+                                </div>
+                            </aura:iteration>
+                        </div>
+                    </div>
+                </div>
+            </lightning:card>
+        </div>
+    </div>
+</aura:component>
