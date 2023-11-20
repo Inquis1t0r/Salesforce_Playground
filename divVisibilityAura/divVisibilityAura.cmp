@@ -1,0 +1,17 @@
+<!-- divVisibilityAura.cmp -->
+<aura:component controller="DivVisibilityController">
+    <aura:attribute name="metadataRecordName" type="String" default="Default" />
+
+    <aura:attribute name="isDivVisible" type="Boolean" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div aura:if="{!v.isDivVisible}">
+        <!-- Your content goes here -->
+        <p>This div is visible!</p>
+    </div>
+    <div aura:if="{!not(v.isDivVisible)}">
+        <!-- Optional: Content to show when the div is not visible -->
+        <p>This div is hidden!</p>
+    </div>
+</aura:component>
